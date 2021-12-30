@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "434906212825",
+    "project_id": "food-recipie-20da0",
+    "storage_bucket": "food-recipie-20da0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:434906212825:android:26aec64977c6a17e8a51c8",
+        "android_client_info": {
+          "package_name": "com.example.recipie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "434906212825-tn77p031d0m4bdu2jnkaqm6lrnc6ul4g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD54cnJfh4ed7u_Qtmmy9p9ak-M4rWXCuE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "434906212825-tn77p031d0m4bdu2jnkaqm6lrnc6ul4g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
