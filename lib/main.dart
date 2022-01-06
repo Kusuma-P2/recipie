@@ -1,12 +1,15 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
+//import 'package:flutter/services.dart';
 import 'package:recipie/OnBoard.dart';
 import 'package:recipie/constant.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-   await Firebase.initializeApp();
+  //SystemChrome.setPreferredOrientations(
+      //[DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -17,7 +20,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        
         primaryColor: kPrimaryColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

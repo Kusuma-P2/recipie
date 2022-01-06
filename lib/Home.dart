@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'constant.dart';
-import 'package:recipie/body.dart';
+//import 'package:recipie/body.dart';
+import 'package:recipie/categorylistpage.dart';
+
 
 class HomeScreen extends StatefulWidget {
   HomeScreen();
@@ -19,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text("What's on your Fridge"),
         centerTitle: false,
       ),
-      body: Body(),
+      body: CategoryListPage(),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipie/Home.dart';
+import 'package:recipie/About.dart';
+
 import 'package:recipie/constant.dart';
 
 class OnBoardScreen extends StatefulWidget {
@@ -18,10 +19,11 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
         children: [
           Align(
             alignment: Alignment.center,
-            child: Image.asset("assets/images/pic8.png", height: 350.0),
+            child: Image.asset("assets/images/pic8.png"),
           ),
+          SizedBox(height:0),
           Container(
-            height: 300.0,
+            height: 300,
             width: MediaQuery.of(context).size.width,
             margin: EdgeInsets.only(
               left: 32,
@@ -51,7 +53,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                SizedBox(height: 24.0),
+                SizedBox(height: kDefaultPadding),
                 Text(
                   "No more confusion about\n  what to cook",
                   textAlign: TextAlign.center,
@@ -65,7 +67,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                 GestureDetector(
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => HomeScreen(),
+                      builder: (context) => About(),
                     ),
                   ),
                   child: Container(

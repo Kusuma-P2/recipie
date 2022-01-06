@@ -1,23 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:recipie/constant.dart';
-import 'package:recipie/feedback.dart';
-import 'package:recipie/recipie.dart';
-import 'package:recipie/recipiedetails/foodimg.dart';
+// ignore: unused_import
+import 'package:recipie/expirey.dart';
+import 'package:recipie/models/subcategory.dart';
 
-class Body extends StatelessWidget {
-  final Recipie recipie;
-  const Body({Key? key, required this.recipie}) : super(key: key);
+// ignore: must_be_immutable
+class DetailsPage extends StatefulWidget {
+  SubCategory? subCategory;
+
+  DetailsPage( {required this.subCategory});
 
   @override
-  Widget build(BuildContext context) {
-    // it provide us total height and width
-    Size size = MediaQuery.of(context).size;
-    
+  DetailsPageState createState() => DetailsPageState();
+}
 
-    return SafeArea(
-        bottom: false,
-        child: SingleChildScrollView(
-            child: Column(
+class DetailsPageState extends State<DetailsPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: buildAppBar(context),
+        
+        backgroundColor: Colors.black,
+        body : SingleChildScrollView(
+          padding: EdgeInsets.only(bottom: 0),
+          child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
@@ -40,21 +46,22 @@ class Body extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Center(
-                    child: Hero(
-                      tag: '${recipie.id}',
-                      child: FoodPoster(
-                        size: size,
-                        image: recipie.image,
-                      ),
-                    ),
+                  Container(
+                  height: 250,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/' +
+                            widget.subCategory!.imgname +
+                            '.jpg', ),
+                        fit: BoxFit.cover),
                   ),
+                ),
                   //ListOfColors(),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         vertical: kDefaultPadding / 2),
                     child: Text(
-                      recipie.title,
+                       widget.subCategory!.name,
                       style: TextStyle(
                         fontSize: 25,
                         color: Colors.white,
@@ -71,7 +78,7 @@ class Body extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    recipie.ingredients,
+                    widget.subCategory!.parts[0].ingredients,
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w400,
@@ -90,7 +97,7 @@ class Body extends StatelessWidget {
                     padding:
                         EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
                     child: Text(
-                      recipie.steps,
+                      widget.subCategory!.parts[0].steps,
                       style: TextStyle(color: Colors.white, fontSize: 18),
                     ),
                   ),
@@ -106,10 +113,10 @@ class Body extends StatelessWidget {
                   onPressed: () => {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => FeedBack()),
+                      MaterialPageRoute(builder: (context) => MyHomePage(expirey: widget.subCategory!.parts[0].expirey)),
                     )
                   },
-                  child: Text('Feedback',
+                  child: Text('Expiry Date',
                   style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                   style: ElevatedButton.styleFrom(
@@ -120,27 +127,22 @@ class Body extends StatelessWidget {
                 ),
               ),
             ),
-            /*Container(
-              margin: EdgeInsets.fromLTRB(kDefaultPadding, 0, kDefaultPadding, kDefaultPadding),
-              child: SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                    onPressed: () => {},
-                    child: Text('Video',
-                    style: TextStyle(color: Colors.black, fontSize: 18,),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary: kPrimaryColor,
-                      padding: EdgeInsets.symmetric(horizontal: kDefaultPadding, vertical: kDefaultPadding / 1.5),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))
-                    ),
-                  ),
-                ),
-              ),*/
             
           ],
         ),
         ),
         );
+  }
+
+  AppBar buildAppBar(BuildContext context) {
+    return AppBar(
+      backgroundColor: kPrimaryColor,
+      elevation: 0,
+      centerTitle: false,
+      title: Text(
+        'What\'s on your Fridge',
+      ),
+    );
+    
   }
 }

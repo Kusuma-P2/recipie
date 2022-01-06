@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recipie/constant.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+// ignore: must_be_immutable
 class Body extends StatelessWidget {
   /*Body({
     Key? key,
@@ -120,6 +121,7 @@ class Body extends StatelessWidget {
                                     height: 1.4 * (size.height / 20),
                                     width: 5 * (size.width / 10),
                                     margin: EdgeInsets.only(bottom: 20),
+                                    // ignore: deprecated_member_use
                                     child: RaisedButton(
                                       elevation: 5.0,
                                       color: kPrimaryColor,
